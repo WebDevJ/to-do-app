@@ -10,13 +10,29 @@ require('dotenv').config(); // sets dotenv so that .env can be used
 var taskRouter  = require('./routes/taskRouter.js'); //points to js file controller
 
 //setup database info for .env
-var config = {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    database: process.env.DB_NAME,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS
+
+// var config = {
+//     host: process.env.DB_HOST,
+//     port: process.env.DB_PORT,
+//     database: process.env.DB_NAME,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASS
+//   }
+
+
+if(process.env.ENVIRONMENT === 'production'){
+  var config = process.env.DATABASE_URL
+  } else {
+    var config = {
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT,
+      database: process.env.DB_NAME,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASS
+    }
   }
+
+
 //-- require other mods here
 var path = require('path');
 var methodOverride = require('method-override');
