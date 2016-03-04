@@ -7,14 +7,23 @@
   <body>
     <h1>Task Page </h1>
     <div>
-      <ul>
-    <% task.forEach((task) => { %>
-          <li>
-            <a href="/task.html.ejs/<%= task.id %>"> <%= task.name %><br>
-      <a href="/"><button>Back </button></a>
-          </li>
-        <% }); %>
-      </ul>
+    <ul>
+      <% task.forEach((task) => { %>
+        <li>
+          <a href="/task.html.ejs/<%= task.id %>"> <%= task.name %> </a><br>
+
+          <a href="/task.html.ejs/<%= task.id %>/editTask.html.ejs"><button>Edit</button></a>
+
+          <form action="/task.html.ejs/<%= task.id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete">
+          </form>
+
+         </li>
+      <% }); %>
+    </ul>
+      <a href="newTask.html.ejs"><button>Create a New Task</button></a>
+
+      <a href="/"><button>Home Page</button></a>
     </div>
   </body>
 </html>

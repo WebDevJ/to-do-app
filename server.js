@@ -7,7 +7,12 @@ require('dotenv').config(); // sets dotenv so that .env can be used
 //--
 
 //defined my task router below
-var taskRouter  = require('./routes/taskRouter.js'); //points to js file controller
+var taskRouter  = require('./routes/taskRouter.js');
+
+
+
+
+ //points to js file controller
 
 //setup database info for .env
 var config = {
@@ -55,6 +60,11 @@ app.get('/', function(req, res){
 //-- Tell our app to use route we defined with path
 
 app.use('/task.html.ejs', taskRouter);
+app.use('/showTask.html.ejs', taskRouter);
+app.use('/newTask.html.ejs', taskRouter);
+app.use('/editTask.html.ejs', taskRouter);
+
+
 
 //--
 

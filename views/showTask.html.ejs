@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show Task</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>edit task</h1>
+    <div class="project">
+      <h2>Task  #<span><%= task.id %></span></h2>
+
+      <a href="/showTask.html.ejs/<%= task.id %>"> <%= task.name %> </a>
+      <a href="/showTask.html.ejs/<%= task.id %>/edit"><button>Edit</button></a>
+      <form action="/showTask.html.ejs/<%= task.id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete">
+      </form>
+
+    </div>
+    <div class="back">
+      <a href="/showTask.html.ejs/"><button>BACK TO All Task PAGE</button></a>
+    </div>
+  </div>
+  </body>
+</html>

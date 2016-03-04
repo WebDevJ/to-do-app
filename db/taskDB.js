@@ -29,3 +29,96 @@ module.exports.getTask = (req, res, next) => {
     });
   });
 };
+
+//---
+//
+// module.exports.getTask = (req, res, next) => {
+//   pg.connect(config, (err, client, done) => {
+//     if (err) {
+//       done();
+//       console.log(err);
+//       res.status(500).json({result: false, data: err});
+//     }
+//
+//     client.query('SELECT * FROM tasks WHERE id = $1', [req.params.id], (err, results) => {
+//       done();
+//
+//       if (err) {
+//         console.error('Error with query', err);
+//       }
+//
+//       res.tasks = results.rows;
+//       next();
+//     });
+//   });
+//
+// };
+// //-- 0
+//
+// module.exports.createTask = (req, res, next) => {
+//   pg.connect(config, (err, client, done) => {
+//     if (err) {
+//       done();
+//       console.log(err);
+//       res.status(500).json({result: false, data: err});
+//     }
+//
+//     client.query('INSERT INTO task (name) VALUES ($1) RETURNING id', [req.body.name], (err, results) => {
+//       done();
+//
+//       if (err) {
+//         console.error('Error with query', err);
+//       }
+//
+//       res.tasks = results.rows;
+//       next();
+//     });
+//   });
+//
+// };
+//
+// module.exports.editTask = (req, res, next) => {
+//   pg.connect(config, (err, client, done) => {
+//     if (err) {
+//       done();
+//       console.log(err);
+//       res.status(500).json({result: false, data: err});
+//     }
+//
+//
+//     client.query('UPDATE tasks SET name = $1 WHERE id = $2', [req.body.name, req.params.id], (err, results) => {
+//       done();
+//
+//       if (err) {
+//         console.error('Error with query', err);
+//       }
+//
+//       next();
+//     });
+//
+//   });
+//
+// };
+//
+// module.exports.deleteTask = (req, res, next) => {
+//   pg.connect(config, (err, client, done) => {
+//     if (err) {
+//       done();
+//       console.log(err);
+//       res.status(500).json({result: false, data: err});
+//     }
+//
+//
+//     client.query('DELETE FROM tasks WHERE id = $1', [req.params.id], (err, results) => {
+//       done();
+//
+//       if (err) {
+//         console.error('Error with query', err);
+//       }
+//
+//       next();
+//     });
+//
+//   });
+//
+// };
