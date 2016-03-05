@@ -57,12 +57,14 @@ app.set('view engine', 'ejs');// also sets express to look for views folder
 app.get('/', function(req, res){
   res.render('index.html.ejs');
 });
+
 //-- Tell our app to use route we defined with path
 
-app.use('/task.html.ejs', taskRouter);
-app.use('/showTask.html.ejs', taskRouter);
+
+ app.use('/task.html.ejs', taskRouter);
+ app.use('/showTask.html.ejs', taskRouter);
 app.use('/newTask.html.ejs', taskRouter);
-app.use('/editTask.html.ejs', taskRouter);
+ app.use('/editTask.html.ejs', taskRouter);
 
 
 

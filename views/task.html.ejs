@@ -12,7 +12,7 @@
         <li>
           <a href="/task.html.ejs/<%= task.id %>"> <%= task.name %> </a><br>
 
-          <a href="/task.html.ejs/<%= task.id %>/editTask.html.ejs"><button>Edit</button></a>
+          <a href="editTask.html.ejs/<%= task.id %>/edit"><button>Edit</button></a>
 
           <form action="/task.html.ejs/<%= task.id %>?_method=DELETE" method="POST">
             <input type="submit" value="Delete">

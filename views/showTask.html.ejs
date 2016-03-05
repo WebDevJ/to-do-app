@@ -6,13 +6,13 @@
   </head>
   <body>
     <div class="container">
-      <h1>edit task</h1>
+      <h1>Show task</h1>
     <div class="project">
       <h2>Task  #<span><%= task.id %></span></h2>
 
-      <a href="/showTask.html.ejs/<%= task.id %>"> <%= task.name %> </a>
-      <a href="/showTask.html.ejs/<%= task.id %>/edit"><button>Edit</button></a>
-      <form action="/showTask.html.ejs/<%= task.id %>?_method=DELETE" method="POST">
+     <%= task.name %> <br>
+      <a href="/editTask.html.ejs/<%= task.id %>/edit"><button>Edit</button></a>
+      <form action="editTask.html.ejs/<%= task.id %>?_method=DELETE" method="POST">
         <input type="submit" value="Delete">
       </form>
 
