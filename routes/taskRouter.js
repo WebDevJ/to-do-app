@@ -17,8 +17,8 @@ taskRouter.post('/', db.createTask, (req, res) => {
   res.redirect(`task.html.ejs/${res.tasks[0].id}`);
 });
 //
-taskRouter.get('z/newTask.html.ejs', (req, res) => {
-  res.render('znewTask.html.ejs', {task: {name: ''}});
+taskRouter.get('/newTask.html.ejs', (req, res) => {
+  res.render('newTask.html.ejs', {task: {name: ''}});
 });
 
 
@@ -40,11 +40,11 @@ taskRouter.put('/:id', db.editTask, (req, res) => {
   res.status(303).redirect(`task.html.ejs${req.params.id}`);
 });
 
-// ----- END of edit functionality
+// ----- END of edit feature
 //
-// taskRouter.delete('/:id', db.deleteTask, (req, res) => {
-//   res.redirect('./');
-// });
+taskRouter.delete('/:id', db.deleteTask, (req, res) => {
+  res.redirect('./');
+});
 
-
+//---- END of delete feature
 module.exports = taskRouter; // used by db/taskDB.js
