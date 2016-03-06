@@ -29,13 +29,24 @@ var taskRouter  = require('./routes/taskRouter.js');
 
 //Making changes for deploy to heroku
 //
-var config = {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    database: process.env.DB_NAME,
-    name: process.env.DB_USER,
-    password: process.env.DB_PASS
+// var config = {
+//     host: process.env.DB_HOST,
+//     port: process.env.DB_PORT,
+//     database: process.env.DB_NAME,
+//     name: process.env.DB_USER,
+//     password: process.env.DB_PASS
+//   }
 
+if(process.env.ENVIRONMENT === 'production'){
+  var config = process.env.DATABASE_URL
+  } else {
+    var config = {
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT,
+      database: process.env.DB_NAME,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASS
+    }
   }
 
 
