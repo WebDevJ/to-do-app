@@ -62,7 +62,7 @@ taskRouter.get('/:id/edit', db.getTasks, (req, res) => {
 
 //--fixed
 taskRouter.put('/:id', db.editTask, (req, res) => {
-  res.status(303).redirect('task.html.ejs');
+  res.status(303).redirect('/task.html.ejs');
 });
 
 // taskRouter.put('/:id', db.editTask, (req, res) => {
