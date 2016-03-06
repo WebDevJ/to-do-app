@@ -1,4 +1,4 @@
-# to-do-app
+# toDoList.app
 Crud app, created with Node & Express
 
 The Main functionality of my app is to help people become more organized by allowing them to login from there phones and check, add, update delete there task.
@@ -18,8 +18,28 @@ I enjoyed working on this project and will add new functionality in the future. 
 ## Install my app locally
 1. download this repo
 2. do a `npm install --save`
+3. after you have the node_modules from my package.json you must have a .env file to run the config settings below:
 
+`DB_HOST= localhost
+PORT = 3000
 
+DB_PORT= 5432
+DB_NAME= todo_db
+SESSION_SECRET= developmentSecret
+DB_USER= your_computer_username
+DB_PASS= your_computer_password`
+
+4. Download `PostgreSQL` and do a pgstart in the `terminal` for the database.
+* Startup `psql` in the `terminal` and create a database named `todo_db` as stated in config above. Then `\c` to connect to `todo_db` and then load my scehma.sql file
+
+5. Fire up `nodemon` and copy and past the url you are given. I set up my server to `consolelog` in the terminal the port to put in to browser to view localhost. Should look like below example.
+
+`[user@MacBook-Pro-1 to-do-app (master)]$ nodemon
+[nodemon] 1.8.1
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching: *.*
+[nodemon] starting `node server.js`
+http://127.0.0.1:3000/`
 
 
 #Issues and Bugs of an app built in 48hrs.
@@ -49,7 +69,15 @@ You can find this in the repo our View below.
 6. I as a user can see clearly when I am in the edit/update view because the heading reads "EDIT" and the name of the task to be updated is present.
 7. I as a user can change my mind and cancel a update or the creation of a new task. This button is clearly labeled on the same page as were the edit view or create view is being visited.
 
+
 # Wire frames
+#### toDoList.app Wire Frame chart:
+![](./images/frame.png)
+#
+
 
 # ERD's     
 No one asked for this but no harm in doing the extra credit.
+#### toDoList.app ERD chart:
+![](./images/erd.png)
+#
