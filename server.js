@@ -39,6 +39,7 @@ if(process.env.ENVIRONMENT === 'production'){
     }
 =======
 //Making changes for deploy to heroku
+//
 var config = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
