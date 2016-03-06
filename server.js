@@ -16,7 +16,6 @@ var taskRouter  = require('./routes/taskRouter.js');
  //points to js file controller
 
 //setup database info for .env
-<<<<<<< HEAD
 
 // var config = {
 //     host: process.env.DB_HOST,
@@ -27,17 +26,7 @@ var taskRouter  = require('./routes/taskRouter.js');
 //   }
 
 
-if(process.env.ENVIRONMENT === 'production'){
-  var config = process.env.DATABASE_URL
-  } else {
-    var config = {
-      host: process.env.DB_HOST,
-      port: process.env.DB_PORT,
-      database: process.env.DB_NAME,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASS
-    }
-=======
+
 //Making changes for deploy to heroku
 //
 var config = {
@@ -46,7 +35,7 @@ var config = {
     database: process.env.DB_NAME,
     name: process.env.DB_USER,
     password: process.env.DB_PASS
->>>>>>> dev330pm-day3
+
   }
 
 
@@ -123,4 +112,5 @@ var port      =process.env.PORT || 3000;
 app.listen(port, function(){
   console.log('http://127.0.0.1:' + port + '/');
 });
+
 // end of set up for initial express server - app dob  - 3/1@10:45pm
