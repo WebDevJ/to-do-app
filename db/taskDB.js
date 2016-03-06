@@ -29,28 +29,28 @@ module.exports.getTask = (req, res, next) => {
 };
 
 //---
-//// REMEMBER to change name here to =>( '.get1Task' )so it dose not crash the above function
-// module.exports.getTask = (req, res, next) => {
-//   pg.connect(config, (err, client, done) => {
-//     if (err) {
-//       done();
-//       console.log(err);
-//       res.status(500).json({result: false, data: err});
-//     }
-//
-//     client.query('SELECT * FROM tasks WHERE id = $1', [req.params.id], (err, results) => {
-//       done();
-//
-//       if (err) {
-//         console.error('Error with query', err);
-//       }
-//
-//       res.tasks = results.rows;
-//       next();
-//     });
-//   });
-//
-// };
+// REMEMBER to change name here to =>( '.get1Task' )so it dose not crash the above function
+module.exports.getTasks = (req, res, next) => {
+  pg.connect(config, (err, client, done) => {
+    if (err) {
+      done();
+      console.log(err);
+      res.status(500).json({result: false, data: err});
+    }
+
+    client.query('SELECT * FROM tasks WHERE id = $1', [req.params.id], (err, results) => {
+      done();
+
+      if (err) {
+        console.error('Error with query', err);
+      }
+
+      res.tasks = results.rows;
+      next();
+    });
+  });
+
+};
 // //-- 0
 //
 module.exports.createTask = (req, res, next) => {

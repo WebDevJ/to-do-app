@@ -10,7 +10,7 @@
     <ul>
       <% task.forEach((task) => { %>
         <li>
-          <a href="/task.html.ejs/<%= task.id %>"> <%= task.name %> </a><br>
+         <%= task.name %><br>
 
           <a href="/editTask.html.ejs/<%= task.id %>/edit"><button>Edit</button></a>
 

@@ -32,8 +32,15 @@ taskRouter.get('/', db.getTask,  (req, res) => {
 //---
 //
 taskRouter.post('/', db.createTask, (req, res) => {
-  res.redirect(`task.html.ejs/${res.tasks[0].id}`);// donot removed /
+  res.redirect('task.html.ejs');// donot removed /
 });
+
+// taskRouter.post('/', db.createTask, (req, res) => {
+//   res.redirect(`task.html.ejs/${res.task[0].id}`);// donot removed /
+// });
+
+
+
 //
 taskRouter.get('/newTask.html.ejs', (req, res) => {//keep / here infront of route
   res.render('newTask.html.ejs', {task: {name: ''}});// if 'newTask.html.ejs' dose not have '/ /' then make sure that is the case with res.render(' ').
@@ -49,14 +56,18 @@ taskRouter.get('/:id', db.getTask, (req, res) => {// oops I had a '/' here befor
 // //--
 // ----- Start of edit functionality
 
-taskRouter.get('/:id/edit', db.getTask, (req, res) => {
+taskRouter.get('/:id/edit', db.getTasks, (req, res) => {
   res.render('editTask.html.ejs', {task: res.tasks[0]});
 });
 
 //--fixed
 taskRouter.put('/:id', db.editTask, (req, res) => {
-  res.status(303).redirect(`task.html.ejs/${req.params.id}`);
+  res.status(303).redirect('task.html.ejs');
 });
+
+// taskRouter.put('/:id', db.editTask, (req, res) => {
+//   res.status(303).redirect(`task.html.ejs/${req.params.id}`);
+// });
 
 // ----- END of edit feature
 //
