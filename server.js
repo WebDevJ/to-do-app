@@ -118,7 +118,7 @@ app.use('/newTask.html.ejs', taskRouter);
 //--
 
 //set port app will listen on
-var port      =process.env.PORT || 3000;
+var port      = (process.env.PORT || 3000);
 //start up server
 app.listen(port, function(){
   console.log('http://127.0.0.1:' + port + '/');
