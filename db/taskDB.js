@@ -63,14 +63,14 @@ module.exports.createTask = (req, res, next) => {
       res.status(500).json({result: false, data: err});
     }
 
-    client.query('INSERT INTO task (name) VALUES ($1) RETURNING id', [req.body.name], (err, results) => {
-      done();
+    client.query('INSERT INTO tasks (name) VALUES ($1) RETURNING id', [req.body.name], (err, results) => {
+      done();// for got (s) on task... 
 
       if (err) {
         console.error('Error with query', err);
       }
 
-      res.tasks = results.rows;
+      res.task = results.rows;
       next();
     });
   });
