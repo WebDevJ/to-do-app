@@ -16,6 +16,7 @@ var taskRouter  = require('./routes/taskRouter.js');
  //points to js file controller
 
 //setup database info for .env
+//Making changes for deploy to heroku
 var config = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
