@@ -1,0 +1,15 @@
+body {
+    background-color: #9966ff;
+}
+
+.can{
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 25px;
+  background-color: white;
+  margin: auto;
+  width: 60%;
+  padding: 10px 25px 25px 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

@@ -3,18 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title>all task</title>
+    <link rel="stylesheet" href="/css/myStyles.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <h1>Task Page </h1>
+    <div class="can">
+    <h1>My Task Page </h1>
     <div>
-      <ul>
-    <% task.forEach((task) => { %>
-          <li>
-            <a href="/task.html.ejs/<%= task.id %>"> <%= task.name %><br>
-      <a href="/"><button>Back </button></a>
-          </li>
-        <% }); %>
-      </ul>
+    <ul>
+      <% task.forEach((task) => { %>
+        <li>
+         <%= task.name %><br>
+
+          <a href="/editTask.html.ejs/<%= task.id %>/edit"><button>Status Of Task</button></a>
+
+          <form action="/task.html.ejs/<%= task.id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Click If Task Completed">
+          </form>
+
+         </li>
+      <% }); %>
+    </ul>
+      <a href="/showTask.html.ejs/newTask.html.ejs"><button>Create a New Task</button></a>
+
+      <a href="/"><button>Home Page</button></a>
     </div>
+  </div>
   </body>
 </html>

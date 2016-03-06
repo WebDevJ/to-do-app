@@ -4,6 +4,7 @@
   "description": "crud app todo list using express with user login",
   "main": "server.js",
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "body-parser": "^1.15.0",
     "connect-pg-simple": "^3.1.0",
     "dotenv": "^2.0.0",

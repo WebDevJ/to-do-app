@@ -5,11 +5,18 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 require('dotenv').config(); // sets dotenv so that .env can be used
 //--
+var pg = require('pg');
 
 //defined my task router below
-var taskRouter  = require('./routes/taskRouter.js'); //points to js file controller
+var taskRouter  = require('./routes/taskRouter.js');
+
+
+
+
+ //points to js file controller
 
 //setup database info for .env
+<<<<<<< HEAD
 
 // var config = {
 //     host: process.env.DB_HOST,
@@ -30,26 +37,50 @@ if(process.env.ENVIRONMENT === 'production'){
       user: process.env.DB_USER,
       password: process.env.DB_PASS
     }
+=======
+//Making changes for deploy to heroku
+var config = {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    name: process.env.DB_USER,
+    password: process.env.DB_PASS
+>>>>>>> dev330pm-day3
   }
 
 
 //-- require other mods here
+var session         = require('express-session');
+var pgSession       = require('connect-pg-simple')(session);
 var path = require('path');
-var methodOverride = require('method-override');
-pry = require('pryjs')
-
-//var db = require('./db/pg');
-
-
-
+var methodOverride  = require('method-override');
+pry                 = require('pryjs')
+var db              = require('./db/pg');
 //--
 //call express it in our variable
-var app         = express();
+var app             = express();
 //tell express what our view engine will be
-
+app.use(express.static(path.join(__dirname, 'public')));
 // var taskRouter = require( path.join(__dirname, '/routes/taskRouter.js'));
 
+// var userRoutes = require( path.join(__dirname, '/routes/users'));
+
 //-- SET app.use
+
+// app.use(session({
+//   store: new pgSession({
+//     pg : pg,
+//     conString : config,
+//     tableName : 'users'
+//   }),
+//   secret : process.env.SESSION_SECRET || 'keyForUserSession', // this digitial assigns the cookie so names can not guess another names users ID //changed and added SESSION_SECRET to .env || localhost secret for devlopment -2/28
+//   saveUninitialized: false, // I turned this warning off in the terminal - 2/28
+//   resave : false,
+//   cookie : { maxAge : 30 * 24 * 60 * 60 * 1000 } // 30 days later this cookie will expire
+// }))
+
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -65,12 +96,23 @@ app.set('view engine', 'ejs');// also sets express to look for views folder
 //--
 
 //set home route
-app.get('/', function(req, res){
-  res.render('index.html.ejs');
-});
+// app.get('/', function(req, res){
+//   res.render('index.html.ejs', { user: req.session.name});
+// })
+  // request name name property for this route to work ELSE denied
+
 //-- Tell our app to use route we defined with path
 
-app.use('/task.html.ejs', taskRouter);
+app.get('/', function(req, res){
+  res.render('index.html.ejs');// request name name property for this route to work ELSE denied
+})
+
+ app.use('/task.html.ejs', taskRouter);
+ app.use('/showTask.html.ejs', taskRouter);
+app.use('/newTask.html.ejs', taskRouter);
+ app.use('/editTask.html.ejs', taskRouter);
+
+
 
 //--
 
