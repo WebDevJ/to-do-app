@@ -3,7 +3,25 @@
 // set mods
 var express = require('express');
 var taskRouter = express.Router();
+var bodyParser = require('body-parser');
+// var session = require('express-session')//NEED FOR SESSION flag 1 of 3
 var db = require('../db/taskDB');
+
+
+
+// taskRouter.use(function(req, res, next) {
+//   console.log(req.session)
+//   if (req.session.user) {
+//     next()
+//   } else {
+//     res.status(401).json({Result: false, data: 'Please signup on Home Page to use this App'})
+//   }
+// })
+//NEED FOR SESSION -flag 2of3
+
+
+
+
 
 //get req for task from model
 //1

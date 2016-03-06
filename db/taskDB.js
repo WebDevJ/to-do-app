@@ -1,7 +1,5 @@
 'use strict';
-
 var pg = require('pg');
-
 var config = {
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
@@ -64,7 +62,7 @@ module.exports.createTask = (req, res, next) => {
     }
 
     client.query('INSERT INTO tasks (name) VALUES ($1) RETURNING id', [req.body.name], (err, results) => {
-      done();// for got (s) on task... 
+      done();// for got (s) on task...
 
       if (err) {
         console.error('Error with query', err);
