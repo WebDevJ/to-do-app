@@ -18,7 +18,7 @@ taskRouter.post('/', db.createTask, (req, res) => {
 });
 //
 taskRouter.get('/newTask.html.ejs', (req, res) => {
-  res.render('newTask.html.ejs', {task: {name: ''}});
+  res.render('newTask.html.ejs', {task: {name: ''}});// if 'newTask.html.ejs' dose not have '/ /' then make sure that is the case with res.render(' ').
 });
 
 
