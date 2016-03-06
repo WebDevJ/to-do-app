@@ -34,7 +34,7 @@ var db              = require('./db/pg');
 //call express it in our variable
 var app             = express();
 //tell express what our view engine will be
-
+app.use(express.static(path.join(__dirname, 'public')));
 // var taskRouter = require( path.join(__dirname, '/routes/taskRouter.js'));
 
 // var userRoutes = require( path.join(__dirname, '/routes/users'));
