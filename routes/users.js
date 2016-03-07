@@ -1,3 +1,5 @@
+// left parts commited out so app would run
+
 // var express = require('express');
 // var users = express.Router();
 // var bodyParser = require('body-parser');

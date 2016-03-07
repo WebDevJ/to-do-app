@@ -1,5 +1,7 @@
+// left parts commited out so app would run .
+
 // var pg = require('pg');
-// //var connectionString = "postgres://add ur userName: dummy password @localhost/sessions_test";
+
 //
 // var config = {
 //   host: process.env.DB_HOST,

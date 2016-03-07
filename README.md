@@ -50,11 +50,11 @@ I did ship minimally, but if you download the repository you will see the app is
 
 2. Lastly, I did deploy to heroku but as of now I am having database issues. The site loads but will not load the data base of todo_list task. I plan to fix this asap.
 
-Link to where app is deployed: HEROKU
+Link to where app is deployed: HEROKU -> 
 https://thawing-reaches-36384.herokuapp.com/
 
 Link to this app's repo page:
-WebDevJ
+WebDevJ ->
 https://github.com/WebDevJ/to-do-app
 
 
