@@ -22,7 +22,6 @@ I enjoyed working on this project and will add new functionality in the future. 
 
 `DB_HOST= localhost
 PORT = 3000
-
 DB_PORT= 5432
 DB_NAME= todo_db
 SESSION_SECRET= developmentSecret
@@ -36,9 +35,9 @@ DB_PASS= your_computer_password`
 
 `[user@MacBook-Pro-1 to-do-app (master)]$ nodemon
 [nodemon] 1.8.1
-[nodemon] to restart at any time, enter `rs`
+[nodemon] to restart at any time, enter rs
 [nodemon] watching: *.*
-[nodemon] starting `node server.js`
+[nodemon] starting node server.js
 http://127.0.0.1:3000/`
 
 
@@ -50,7 +49,7 @@ I did ship minimally, but if you download the repository you will see the app is
 
 2. Lastly, I did deploy to heroku but as of now I am having database issues. The site loads but will not load the data base of todo_list task. I plan to fix this asap.
 
-Link to where app is deployed: HEROKU -> 
+Link to where app is deployed: HEROKU ->
 https://thawing-reaches-36384.herokuapp.com/
 
 Link to this app's repo page:
