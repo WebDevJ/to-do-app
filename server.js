@@ -25,13 +25,42 @@ var taskRouter  = require('./routes/taskRouter.js');
 //setup database info for .env
 
 
-var config = {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    database: process.env.DB_NAME,
-    name: process.env.DB_USER,
-    password: process.env.DB_PASS
+
+
+
+// var config = {
+//     host: process.env.DB_HOST,
+//     port: process.env.DB_PORT,
+//     database: process.env.DB_NAME,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASS
+//   }
+
+
+
+//Making changes for deploy to heroku
+//
+// var config = {
+//     host: process.env.DB_HOST,
+//     port: process.env.DB_PORT,
+//     database: process.env.DB_NAME,
+//     name: process.env.DB_USER,
+//     password: process.env.DB_PASS
+//   }
+
+if(process.env.ENVIRONMENT === 'production'){
+  var config = process.env.DATABASE_URL
+  } else {
+    var config = {
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT,
+      database: process.env.DB_NAME,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASS
+    }
   }
+
+
 
 //-- require other mods here
 var session         = require('express-session');
@@ -109,9 +138,10 @@ app.use('/newTask.html.ejs', taskRouter);
 //--
 
 //set port app will listen on
-var port      =process.env.PORT || 3000;
+var port      = (process.env.PORT || 3000);
 //start up server
 app.listen(port, function(){
   console.log('http://127.0.0.1:' + port + '/');
 });
+
 // end of set up for initial express server - app dob  - 3/1@10:45pm
