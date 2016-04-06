@@ -1,5 +1,5 @@
 INSERT INTO tasks
-(name) VALUES
+(task_name) VALUES
 ('Create server & routes'),
 ('set up controller.js'),
 ('set up model.js'),
