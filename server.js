@@ -3,7 +3,14 @@ var express     = require('express');
 //require other mod's
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-require('dotenv').config(); // sets dotenv so that .env can be used
+
+
+if(!process.env.NODE_ENV){
+ require('dotenv').config();
+}
+// sets dotenv so that .env can be used
+
+
 //--
 var pg = require('pg');
 
@@ -16,6 +23,8 @@ var taskRouter  = require('./routes/taskRouter.js');
  //points to js file controller
 
 //setup database info for .env
+
+
 var config = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -23,6 +32,7 @@ var config = {
     name: process.env.DB_USER,
     password: process.env.DB_PASS
   }
+
 //-- require other mods here
 var session         = require('express-session');
 var pgSession       = require('connect-pg-simple')(session);
@@ -58,7 +68,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(morgan('short'));
+if(process.env.NODE_ENV==='development'){
+ app.use(morgan('dev'));
+} else{
+ app.use(morgan('common'));
+}
+
+
+
+//app.use(morgan('short')); turned off during my deploy
 
 app.use(methodOverride('_method'))
 

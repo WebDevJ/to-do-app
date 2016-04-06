@@ -1,12 +1,24 @@
 'use strict';
 var pg = require('pg');
-var config = {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS
+
+//added for deploy
+var config = process.env.DATABASE_URL || {
+ host: process.env.DB_HOST,
+ port: process.env.DB_PORT,
+ database: process.env.DB_NAME,
+ user: process.env.DB_USER,
+ password: process.env.DB_PASS
 };
+
+
+// Turned off for deploy
+// var config = {
+//   host: process.env.DB_HOST,
+//   port: process.env.DB_PORT,
+//   database: process.env.DB_NAME,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASS
+// };
 // get my task from database
 module.exports.getTask = (req, res, next) => {
   pg.connect(config, (err, client, done) => {
